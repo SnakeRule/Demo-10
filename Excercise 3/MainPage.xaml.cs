@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -16,22 +15,35 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Excercise_2
+namespace Excercise_3
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        bool check;
+        int result;
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        private void loginButton_Click(object sender, RoutedEventArgs e)
+        Lotto lotto = new Lotto();
+
+        private void drawButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(loginTextBox.Text);
-            Debug.WriteLine(passwordTextBox.Password);
+           if (check = int.TryParse(drawsTextBox.Text, out result))
+            {
+                string game = lottoComboBox.SelectedValue.ToString();
+                lotto.drawNumbers(result, game);
+                numbersTextBlock.Text = lotto.PrintNumbers();
+            }
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            numbersTextBlock.Text = "";
         }
     }
 }

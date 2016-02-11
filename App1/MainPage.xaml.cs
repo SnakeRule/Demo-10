@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -16,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Excercise_2
+namespace App1
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,12 +25,6 @@ namespace Excercise_2
         public MainPage()
         {
             this.InitializeComponent();
-        }
-
-        private void loginButton_Click(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine(loginTextBox.Text);
-            Debug.WriteLine(passwordTextBox.Password);
         }
     }
 }

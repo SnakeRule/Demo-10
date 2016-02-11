@@ -7,15 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFFF3FDC">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="97"></ColumnDefinition>
-            <ColumnDefinition Width="210"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <TextBlock
+
+        <TextBlock Name="loginTextBlock" Grid.Column="0" Grid.Row="0" Text="Login:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Name="passwordTextBlock" Grid.Column="0" Grid.Row="1" Text="Password: " HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <Button x:Name="loginButton" Grid.Column="1" Grid.Row="2" Content="Login" Click="loginButton_Click"></Button>
+        <TextBox x:Name ="loginTextBox" Grid.Column="1" Grid.Row="0" Margin="10"></TextBox>
+        <PasswordBox x:Name="passwordTextBox" Grid.Column="1" Grid.Row="1" Margin="10"></PasswordBox>
+
     </Grid>
 </Page>
