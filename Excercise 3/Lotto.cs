@@ -28,28 +28,43 @@ namespace Excercise_3
             Random rand = new Random();
             if(game == "Lotto") // Lotto mode
             {
-                for(int i = 0; i < draws; i++)
+                int[] rownumbers = new int[7];
+                for (int i = 0; i < draws; i++)
                 {
                     row = "";
                     row = row + "Row " + (i + 1) + ": ";
                     for (int u = 0; u < 7; u++)
                     {
-                        row = row + rand.Next(1, 40) + " ";
+                        rownumbers[u] = rand.Next(1, 40);
+                    }
+                    Array.Sort(rownumbers); // Sorting the array from smallest to largest
+
+                    for (int u = 0; u < 7; u++)
+                    {
+                        row += rownumbers[u] + " "; // Saving the numbers to string after sorting
                     }
                     lottoRow = new Numbers { RowNumbers = row };
+                    
                     AddNumber(lottoRow);
                 }
             }
 
             if (game == "Viking Lotto") // Viking lotto mode
             {
+                int[] rownumbers = new int[6];
                 for (int i = 0; i < draws; i++)
                 {
                     row = "";
                     row = row + "Row " + (i + 1) + ": ";
                     for (int u = 0; u < 6; u++)
                     {
-                        row = row + rand.Next(1, 49) + " ";
+                        rownumbers[u] = rand.Next(1, 49);
+                    }
+                    Array.Sort(rownumbers); // Sorting the array from smallest to largest
+
+                    for (int u = 0; u < 6; u++)
+                    {
+                        row += rownumbers[u] + " "; // Saving the numbers to string after sorting
                     }
                     lottoRow = new Numbers { RowNumbers = row };
                     AddNumber(lottoRow);
@@ -58,19 +73,37 @@ namespace Excercise_3
 
             if (game == "Eurojackpot") // Eurojackpot mode
             {
+                int[] rownumbers = new int[5];
                 for (int i = 0; i < draws; i++)
                 {
                     row = "";
                     row = row + "Row " + (i + 1) + ": ";
                     for (int u = 0; u < 5; u++)
                     {
-                        row = row + rand.Next(1, 51) + " ";
+                        rownumbers[u] = rand.Next(1, 51);
                     }
-                    row = row + "Tähtinumerot: ";
-                    for (int o = 0; o <2; o++)
+                    Array.Sort(rownumbers); // Sorting the array from smallest to largest
+
+                    int[] starnumbers = new int[2];
+
+                    for (int y = 0; y < 2; y++)
                     {
-                        row = row + rand.Next(1, 11) + " ";
+                        starnumbers[y] = rand.Next(1, 11);
                     }
+                    Array.Sort(starnumbers);
+
+                    for (int u = 0; u < 5; u++)
+                    {
+                        row += rownumbers[u] + " "; // Saving the numbers to string after sorting
+                    }
+
+                    row += "Tähtinumerot: ";
+
+                    for (int u = 0; u < 2; u++)
+                    {
+                        row += starnumbers[u] + " "; // Saving the star numbers to string after sorting
+                    }
+
                     lottoRow = new Numbers { RowNumbers = row };
                     AddNumber(lottoRow);
                 }
